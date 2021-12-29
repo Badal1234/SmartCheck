@@ -1,0 +1,19 @@
+{
+  "name": "smartcheck",
+  "version": "1.0.0",
+  "description": "Smart volunirbility scanner and exploit framework for smart constract",
+  "main": "./bin/index.js",
+  "bin": {
+    "smartcheck": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "siddharth padhi",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "solc": "^0.8.10",
+    "web3": "^1.6.1"
+  }
+}
