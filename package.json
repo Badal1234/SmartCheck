@@ -12,6 +12,7 @@
   "author": "siddharth padhi",
   "license": "ISC",
   "dependencies": {
+    "@solidity-parser/parser": "^0.14.0",
     "commander": "^8.3.0",
     "solc": "^0.8.10",
     "web3": "^1.6.1"
