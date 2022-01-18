@@ -4,15 +4,15 @@ var linedraw = require('../helper/draw.js')
 var fs = require('fs')
 const parser = require('@solidity-parser/parser');
 const { stringify } = require('querystring');
-const { exec } = require('child_process');
+const { exec, execSync } = require('child_process');
 linedraw.linedraw()
 program.option('-h','--help','information of all the commands')
-program.option('-c','--file', 'path to smart contract file')
+program.option('-c','--analyze', 'path to smart contract file')
 program.parse(process.argv)
 options = program.opts()
 console.log(options)
-if(!options.length) console.log(options)
-if(options.help) console.log(options)
+//if(!options.length) console.log(options)
+//if(options.help) console.log(options)
 
 
 const decompileEvm = (bytecode) =>{
@@ -49,15 +49,10 @@ const checkVolunirbility = () =>{
 
 
 }
-exec(`docker run -v $(pwd):/tmp mythril/myth analyze /tmp/contract.sol`,(err,data)=>{
-    if (err){
-        console.log(err)
-    }else{
-        console.log(data)
-    }
-})
-
+console.log('smartcheck is Analyzing.........')
 readFile('./test/example.sol')
+a = execSync(`myth analyze --execution-timeout 10 test/example.sol`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 }).toString()
+console.log(a)
 
 
 
